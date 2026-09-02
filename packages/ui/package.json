@@ -11,8 +11,13 @@
     "update": "bun update --latest"
   },
   "dependencies": {
+    "@base-ui/react": "^1.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.7.0",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@types/node": "^25.5.2",
@@ -21,6 +26,10 @@
     "@workspace/tailwind": "workspace:*"
   },
   "exports": {
-    "./components/*": "./src/components/*.tsx"
+    "./components/*": "./src/components/*.tsx",
+    "./ui/*": "./src/components/ui/*.tsx",
+    "./lib/*": "./src/lib/*.ts",
+    "./utils/*": "./src/lib/utils/*.ts",
+    "./hooks/*": "./src/hooks/*.ts"
   }
 }
