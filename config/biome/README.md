@@ -1,0 +1,145 @@
+# @workspace/biome
+
+Shared [Biome](https://biomejs.dev/) configuration for the workspace.
+
+## Overview
+
+This package provides a standardized Biome configuration used across all packages and applications within the workspace. It ensures consistent code formatting and linting throughout the project.
+
+## Technology Stack
+
+| Technology |
+|------------|
+| [Biome](https://biomejs.dev/) |
+
+## Features
+
+- **Fast Performance** - Biome is written in Rust for blazing-fast execution
+- **Unified Tooling** - Single tool for both formatting and linting
+- **TypeScript Support** - First-class TypeScript and JSX support
+- **Zero Config** - Works out of the box with sensible defaults
+- **Editor Integration** - VS Code extension available
+
+## Configuration
+
+The `biome.json` file configures:
+
+### Formatter Settings
+
+```json
+{
+  "formatter": {
+    "enabled": true,
+    "lineWidth": 80,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "trailingCommas": "all",
+      "semicolons": "always"
+    }
+  }
+}
+```
+
+### Linter Rules
+
+```json
+{
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "useConst": "warn"
+      },
+      "correctness": {
+        "noUnusedVariables": "error"
+      }
+    }
+  }
+}
+```
+
+### Import Organization
+
+```json
+{
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}
+```
+
+## Usage
+
+The root `biome.json` in the workspace root extends from this configuration. All packages automatically inherit these settings.
+
+### Running Biome
+
+From the workspace root:
+
+```sh
+# Format all files
+bun run format
+
+# Lint all files
+bun run lint
+```
+
+### VS Code Integration
+
+Install the [Biome VS Code extension](https://marketplace.visualstudio.com/items?itemName=biomejs.biome) for editor integration with:
+
+- Format on save
+- Real-time linting
+- Quick fixes
+
+Add to your `.vscode/settings.json`:
+
+```json
+{
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}
+```
+
+## File Filtering
+
+The configuration includes specific file patterns:
+
+```json
+{
+  "files": {
+    "includes": [
+      "**/*.{js,jsx,ts,tsx}",
+      "!**/dist",
+      "!**/build",
+      "!**/.turbo",
+      "!**/.next",
+      "!**/node_modules"
+    ]
+  }
+}
+```
+
+## Scripts
+
+- **bun run clean** - Remove generated directories
+- **bun run update** - Update dependencies to latest versions
