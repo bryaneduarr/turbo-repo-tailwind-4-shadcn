@@ -56,7 +56,7 @@ import { formStateSchema } from "@workspace/schemas/client/form-state.schema";
 **Examples:**
 
 - `user.schema.ts` -> exports `userSchema`, `createUserSchema`, `updateUserSchema`
-- `auth.schema.ts` -> exports `authSchema`, `signInSchema`, `signUpSchema`
+- `authentication/authentication.schema.ts` -> exports `signInSchema`
 - `pagination.schema.ts` -> exports `paginationSchema`
 
 ## Creating Schemas
@@ -153,7 +153,7 @@ const getUserRoute = createRoute({
 
 ### Authentication Schemas
 
-**File:** `src/shared/auth.schema.ts`
+**File:** `src/authentication/authentication.schema.ts`
 
 ```typescript
 import { z } from "@hono/zod-openapi";

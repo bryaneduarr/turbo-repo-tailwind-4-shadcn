@@ -18,7 +18,7 @@
     "@types/node": "^25.5.2"
   },
   "exports": {
-    "./shared/*": "./src/shared/*.ts",
+    "./authentication/*": "./src/authentication/*.ts",
     "./server/*": "./src/server/*.ts",
     "./client/*": "./src/client/*.ts"
   }
