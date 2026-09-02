@@ -12,6 +12,10 @@ const EnvSchema = z
   .object({
     // Add all of the ENV variables to check and have type safety.
     SERVER_URL: z.url().describe("The base URL for the server."),
+    CLIENT_URL: z
+      .url()
+      .default("http://localhost:3000")
+      .describe("The allowed client origin for CORS."),
     PORT: z.coerce.number().describe("The port the server runs on."),
     NODE_ENV: z
       .enum(["development", "production", "test"])

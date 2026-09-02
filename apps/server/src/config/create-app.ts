@@ -1,14 +1,21 @@
+import env from "@/env";
 import notFound from "@/middleware/defaults/not-found";
 import onError from "@/middleware/defaults/on-error";
 import { honoLogger } from "@/middleware/defaults/pino-logger";
 import { serveEmojiFavicon } from "@/middleware/defaults/serve-emoji-favicon";
+import { cors } from "hono/cors";
 
 import { createRouter } from "./create-router";
 
 export function createApp() {
   const app = createRouter();
 
-  // Here it is also possible to put app.use() for using cors or something similar. //
+  app.use(
+    "*",
+    cors({
+      origin: env.CLIENT_URL,
+    }),
+  );
 
   // Recommended to have this so this common configuration are already resolved. //
 
