@@ -1,4 +1,5 @@
 import { Scalar } from "@scalar/hono-api-reference";
+import { API_VX_PREFIX } from "@/config/api-prefix";
 import type { AppOpenAPI } from "@/types/openapi";
 
 import packageJson from "../../package.json";
@@ -6,14 +7,13 @@ import packageJson from "../../package.json";
 /**
  * Configures OpenAPI documentation and reference UI for the application.
  *
- * Sets up the OpenAPI specification endpoint at `/doc` with version information
- * from package.json and creates a 'Scalar-powered API' reference UI at `/reference`
- * with Kepler theme and fetch client configuration.
+ * Sets up the versioned OpenAPI specification endpoint with version information
+ * from package.json and creates a Scalar-powered API reference UI alongside it.
  *
  * @param app - The OpenAPI-enabled application instance to configure
  */
 export default function OpenApiConfig(app: AppOpenAPI) {
-  app.doc("/doc", {
+  app.doc(`${API_VX_PREFIX}/doc`, {
     openapi: "3.0.0",
     info: {
       version: packageJson.version,
@@ -22,9 +22,9 @@ export default function OpenApiConfig(app: AppOpenAPI) {
   });
 
   app.get(
-    "/reference",
+    `${API_VX_PREFIX}/reference`,
     Scalar({
-      url: "/doc",
+      url: `${API_VX_PREFIX}/doc`,
       theme: "kepler", // Change Scalar theme here.
       defaultHttpClient: {
         targetKey: "js", // Change this to a specific language.

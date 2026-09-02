@@ -1,4 +1,5 @@
 import { createApp } from "@/config/create-app";
+import { API_VX_PREFIX } from "@/config/api-prefix";
 import OpenApiConfig from "@/config/openapi-config";
 
 import helloWorld from "./routes/index";
@@ -14,7 +15,7 @@ OpenApiConfig(app);
 
 // This will iterate through all of the routes and make them available.
 routes.forEach((route) => {
-  app.route("/", route);
+  app.route(API_VX_PREFIX, route);
 });
 
 export default app;
