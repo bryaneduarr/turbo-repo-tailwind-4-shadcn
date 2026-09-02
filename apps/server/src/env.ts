@@ -18,7 +18,7 @@ const EnvSchema = z
       .describe("The allowed client origin for CORS."),
     PORT: z.coerce.number().describe("The port the server runs on."),
     NODE_ENV: z
-      .enum(["development", "production", "test"])
+      .enum(["development", "production"])
       .describe("The environment mode."),
     LOG_LEVEL: z
       .enum(["info", "warn", "error", "debug", "fatal", "trace", "silent"])
