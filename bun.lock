@@ -121,6 +121,7 @@
         "@types/react-dom": "^19.2.3",
         "@workspace/tailwind": "workspace:*",
         "jsdom": "^29.0.1",
+        "tsx": "^4.21.0",
         "vitest": "^4.1.2",
       },
     },

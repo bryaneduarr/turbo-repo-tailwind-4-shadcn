@@ -22,7 +22,8 @@
     "@types/node": "^25.5.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@workspace/tailwind": "workspace:*"
+    "@workspace/tailwind": "workspace:*",
+    "tsx": "^4.21.0"
   },
   "exports": {
     "./components/*": "./src/components/*.tsx",
