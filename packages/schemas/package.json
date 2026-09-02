@@ -1,0 +1,25 @@
+{
+  "name": "@workspace/schemas",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf node_modules/ .turbo/",
+    "check-types": "tsc --noEmit",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "update": "bun update --latest"
+  },
+  "dependencies": {
+    "@hono/zod-openapi": "^1.2.4",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2"
+  },
+  "exports": {
+    "./shared/*": "./src/shared/*.ts",
+    "./server/*": "./src/server/*.ts",
+    "./client/*": "./src/client/*.ts"
+  }
+}
