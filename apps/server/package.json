@@ -21,6 +21,7 @@
     "@hono/zod-openapi": "^1.2.4",
     "@scalar/hono-api-reference": "^0.10.6",
     "dotenv": "^17.4.0",
+    "drizzle-orm": "^0.45.2",
     "hono": "^4.12.10",
     "hono-pino": "^0.10.3",
     "pino": "^10.3.1",
