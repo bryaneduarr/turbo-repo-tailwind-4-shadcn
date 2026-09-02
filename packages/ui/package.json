@@ -8,7 +8,7 @@
     "check-types": "tsc --noEmit",
     "format": "biome format --write .",
     "lint": "biome lint .",
-    "update": "pnpm update --latest"
+    "update": "bun update --latest"
   },
   "dependencies": {
     "react": "^19.2.0",

@@ -10,7 +10,7 @@
     "format": "biome format --write .",
     "lint": "biome lint .",
     "start": "node ./dist/src/index.js",
-    "update": "pnpm update --latest"
+    "update": "bun update --latest"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.6",
