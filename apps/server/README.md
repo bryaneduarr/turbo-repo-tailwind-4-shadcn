@@ -1,15 +1,27 @@
 # Hono TypeScript Server
 
-A type-safe **Back-End** server application built with **Hono** and **TypeScript**.
+A type-safe **backend** server application built with [Hono](https://hono.dev/) and TypeScript.
 
-This server provides a maintainable services with modern TypeScript, OpenAPI documentation.
+This server provides maintainable API services with modern TypeScript and auto-generated OpenAPI documentation.
+
+## Technology Stack
+
+| Technology |
+|------------|
+| [Hono.js](https://hono.dev/) |
+| [TypeScript](https://www.typescriptlang.org/) |
+| [Zod](https://zod.dev/) |
+| [@hono/zod-openapi](https://github.com/honojs/middleware) |
+| [Scalar](https://github.com/scalar/scalar) |
+| [Pino](https://getpino.io/) |
 
 ## Features
 
-- **TypeScript Integration**: Full type safety throughout the application.
-- **Hono Framework**: Fast, modern, and lightweight web framework.
-- **OpenAPI Integration**: Auto-generated OpenAPI docs for your API.
-- **Environment Configuration**: Type-safe, Zod-validated environment variable management.
+- **TypeScript Integration**: Full type safety throughout the application
+- **Hono Framework**: Fast, modern, and lightweight web framework
+- **OpenAPI Integration**: Auto-generated OpenAPI docs for your API
+- **Scalar API Docs**: Beautiful API reference at `/api/v1/reference`
+- **Environment Configuration**: Type-safe, Zod-validated environment variable management
 
 ## Getting Started
 
@@ -24,7 +36,7 @@ cp .env.example .env
 Start the development server:
 
 ```sh
-pnpm run dev
+bun run dev
 ```
 
 The server will be available at [http://localhost:3001](http://localhost:3001) by default.
@@ -34,7 +46,7 @@ The server will be available at [http://localhost:3001](http://localhost:3001) b
 Build the TypeScript project:
 
 ```sh
-pnpm run build
+bun run build
 ```
 
 The compiled JavaScript will be generated in the `dist/` directory.
@@ -42,23 +54,23 @@ The compiled JavaScript will be generated in the `dist/` directory.
 Starting the Production Server:
 
 ```sh
-pnpm run start
+bun run start
 ```
 
 ## Available Scripts
 
-- **pnpm build** - Compile TypeScript to JavaScript with path alias resolution
-- **pnpm check-types** - Check TypeScript types without emitting files
-- **pnpm clean** - Remove generated directories (dist, node_modules, .turbo)
-- **pnpm dev** - Start development server with hot reloading
-- **pnpm format** - Format code with Biome
-- **pnpm lint** - Lint code with Biome
-- **pnpm start** - Start the production server
-- **pnpm update** - Update dependencies to their latest versions
+- **bun run build** - Compile TypeScript to JavaScript with path alias resolution
+- **bun run check-types** - Check TypeScript types without emitting files
+- **bun run clean** - Remove generated directories (dist, node_modules, .turbo)
+- **bun run dev** - Start development server with hot reloading
+- **bun run format** - Format code with Biome
+- **bun run lint** - Lint code with Biome
+- **bun run start** - Start the production server
+- **bun run update** - Update dependencies to their latest versions
 
 ## Environment Configuration
 
-The application uses a type-safe configuration module to manage environment variables, validated with Zod. See [src/env.ts](./src/env.ts) to add more ENV variable with type-safety.
+The application uses a type-safe configuration module to manage environment variables, validated with Zod. See [src/env.ts](./src/env.ts) to add more ENV variables with type-safety.
 
 ```typescript
 const EnvSchema = z.object({
@@ -75,15 +87,15 @@ The server is configured to generate OpenAPI documentation automatically using `
 
 You can find the OpenAPI config in [src/config/openapi-config.ts](./src/config/openapi-config.ts).
 
-All routes and schemas are documented and available at the `/reference` endpoint. This is built in with [Scalar](https://github.com/scalar/scalar).
+All routes and schemas are documented and available at the `/api/v1/reference` endpoint. This is built with [Scalar](https://github.com/scalar/scalar).
 
 ## Adding a New Route
 
 Routes follow a modular structure for maintainability and type safety. Each route consists of:
 
-- A **handler** (business logic).
-- A **route** (Hono route definition).
-- The **routes index** (exports all routes).
+- A **handler** (business logic)
+- A **route** (Hono route definition)
+- The **routes index** (exports all routes)
 
 To add a new route:
 
@@ -137,7 +149,7 @@ const router = createRouter().openapi(helloWorldRoute, helloWorldHandler);
 export default router;
 ```
 
-4. **Register the route in the app** in `src/app.ts`, just place the index file of the imported routes in here.:
+4. **Register the route in the app** in `src/app.ts`, just place the index file of the imported routes in here:
 
 ```typescript
 // src/app.ts
@@ -147,7 +159,7 @@ import helloWorld from "./routes/index";
 const routes = [helloWorld];
 ```
 
-Your new route will now be available at `/api/my-feature` and **automatically included in the OpenAPI docs based on the documentation you specified in the routes file**.
+Your new route will now be available at `/api/v1/my-feature` and **automatically included in the OpenAPI docs based on the documentation you specified in the routes file**.
 
 ## TypeScript Path Aliases
 
