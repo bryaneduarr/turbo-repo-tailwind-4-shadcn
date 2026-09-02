@@ -18,6 +18,22 @@
       "cache": false,
       "persistent": true
     },
+    "drizzle:generate": {
+      "cache": false,
+      "persistent": true
+    },
+    "drizzle:migrate": {
+      "cache": false,
+      "persistent": true
+    },
+    "drizzle:push": {
+      "cache": false,
+      "persistent": true
+    },
+    "drizzle:studio": {
+      "cache": false,
+      "persistent": true
+    },
     "format": {
       "cache": false,
       "persistent": true

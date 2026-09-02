@@ -8,11 +8,15 @@
     "clean": "turbo clean && rm -rf .turbo/ node_modules",
     "check-types": "turbo check-types",
     "dev": "turbo dev",
+    "drizzle:generate": "turbo drizzle:generate",
+    "drizzle:migrate": "turbo drizzle:migrate",
+    "drizzle:push": "turbo drizzle:push",
+    "drizzle:studio": "turbo drizzle:studio",
     "format": "biome format --write . && turbo format",
     "lint": "biome lint . && turbo lint",
     "update": "turbo update",
-    "setup": "bun run clean && rm -rf bun.lock && bun install && bun run check-types && bun run lint && bun run format && bun run build && bun run dev",
-    "setup:update": "bun run clean && rm -rf bun.lock && bun install && bun run update && bun run clean && rm -rf bun.lock && bun install && bun run check-types && bun run lint && bun run format && bun run build && bun run dev",
+    "setup": "bun run clean && rm -rf bun.lock && bun install && bun run drizzle:generate && bun run drizzle:migrate && bun run check-types && bun run lint && bun run format && bun run build && bun run dev",
+    "setup:update": "bun run clean && rm -rf bun.lock && bun install && bun run update && bun run clean && rm -rf bun-lock.yaml && bun install && bun run drizzle:generate && bun run drizzle:migrate && bun run check-types && bun run lint && bun run format && bun run build && bun run dev",
     "start": "turbo start"
   },
   "workspaces": [
