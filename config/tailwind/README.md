@@ -25,7 +25,7 @@ This package provides a standardized [Tailwind CSS v4](https://tailwindcss.com/d
 ## Key Files
 
 - **`globals.css`** - Global styles, CSS variables, and theme configuration
-- **`postcss.config.mjs`** - PostCSS configuration for Tailwind
+- **`postcss.config.ts`** - PostCSS configuration for Tailwind
 
 ## Theme Configuration
 
@@ -76,9 +76,9 @@ import "@workspace/tailwind/globals.css";
 
 ### PostCSS Configuration
 
-For PostCSS configuration, create a `postcss.config.mjs`:
+For PostCSS configuration, create a `postcss.config.ts`:
 
-```javascript
+```typescript
 export { default } from "@workspace/tailwind/postcss.config";
 ```
 

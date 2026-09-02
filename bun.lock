@@ -79,6 +79,7 @@
       "devDependencies": {
         "@tailwindcss/postcss": "^4.2.2",
         "tailwindcss": "^4.2.2",
+        "tsx": "^4.21.0",
       },
     },
     "config/typescript": {
