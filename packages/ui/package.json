@@ -11,12 +11,12 @@
     "update": "bun update --latest"
   },
   "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.6",
+    "@types/node": "^25.5.2",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@workspace/tailwind": "workspace:*"
   },
