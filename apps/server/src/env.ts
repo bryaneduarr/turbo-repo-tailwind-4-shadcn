@@ -19,6 +19,12 @@ const EnvSchema = z
     LOG_LEVEL: z
       .enum(["info", "warn", "error", "debug", "fatal", "trace", "silent"])
       .describe("The log level used in pino-logger."),
+    // Database connection settings.
+    DB_HOST: z.string().describe("Where the database is hosted."),
+    DB_PORT: z.coerce.number().describe("Default PostgreSQL port."),
+    DB_USER: z.string().describe("Database user."),
+    DB_PASSWORD: z.string().describe("Database password."),
+    DB_NAME: z.string().describe("Database name."),
   })
   .describe("Server environment variables schema.");
 
